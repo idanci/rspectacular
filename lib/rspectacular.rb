@@ -1,3 +1,3 @@
 if defined? RSpec
-  require 'rspectacular/active_record'
+  require 'rspectacular/rspec'
 end
