@@ -2,9 +2,9 @@ module RSpectacular
   module ActiveRecord
     module Matchers
       class PersistenceMatcher
-        def initialize(persistable_object)
-          @persistable_class = persistable_object.class
-          @desired_attributes = persistable_object.is_a?(Hash) ? persistable_object : persistable_object.attributes
+        def initialize(persistable, options)
+          @persistable_class  = persistable.is_a?(Class) ? persistable : persistable.class
+          @desired_attributes = options[:with] || persistable.attributes
           @desired_attributes = @desired_attributes.reject {|k,v| ['id', 'created_at', 'updated_at'].include? k}
         end
 
@@ -25,11 +25,13 @@ module RSpectacular
         end
       end
 
-      def persist(desired_object)
-        PersistenceMatcher.new(desired_object)
+      def persist(desired_object, options = {})
+        PersistenceMatcher.new(desired_object, options)
       end
 
       alias :persist_the :persist
+      alias :persist_a   :persist
+      alias :persist_an  :persist
     end
   end
 end
