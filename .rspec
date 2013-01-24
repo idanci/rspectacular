@@ -1,0 +1,4 @@
+--colour
+--format Fuubar
+--format documentation --color -o tmp/rspec.txt
+--format html -o tmp/rspec.html
