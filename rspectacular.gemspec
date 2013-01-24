@@ -1,23 +1,32 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "rspectacular/version"
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'rspectacular/version'
 
-Gem::Specification.new do |s|
-  s.name        = "rspectacular"
-  s.version     = Rspectacular::VERSION
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = ["jfelchner", "thekompanee"]
-  s.email       = ["support@thekompanee.com"]
-  s.homepage    = "https://github.com/jfelchner/rspectacular"
-  s.summary     = %q{Custom RSpec matchers}
-  s.description = %q{We rock some custom RSpec matchers like it ain't nobody's bidnezz.}
+Gem::Specification.new do |gem|
+  gem.rubygems_version  = '1.3.5'
 
-  s.rubyforge_project = "rspectacular"
+  gem.name              = 'rspectacular'
+  gem.rubyforge_project = 'rspectacular'
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  gem.version           = Rspectacular::VERSION
+  gem.platform          = Gem::Platform::RUBY
 
-  s.add_dependency('shoulda', '~> 2.11.0')
+  gem.authors           = %w{jfelchner}
+  gem.email             = 'accounts+git@thekompanee.com'
+  gem.date              = Date.today
+  gem.homepage          = 'https://github.com/jfelchner/rspectacular'
+
+  gem.summary           = %q{RSpec Support And Matchers}
+  gem.description       = %q{We rock some RSpec configurations and matchers like it ain't nobody's bidnezz.}
+
+  gem.rdoc_options      = ['--charset = UTF-8']
+  gem.extra_rdoc_files  = %w{README.md}
+
+  gem.executables       = Dir['{bin}/**/*']
+  gem.files             = Dir['{app,config,db,lib}/**/*'] + %w{Rakefile README.md}
+  gem.test_files        = Dir['{test,spec,features}/**/*']
+  gem.require_paths     = ['lib']
+
+  gem.add_dependency              'rspec',          '~> 2.12'
 end
