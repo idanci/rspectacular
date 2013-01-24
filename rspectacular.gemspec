@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.name              = 'rspectacular'
   gem.rubyforge_project = 'rspectacular'
 
-  gem.version           = Rspectacular::VERSION
+  gem.version           = RSpectacular::VERSION
   gem.platform          = Gem::Platform::RUBY
 
   gem.authors           = %w{jfelchner}

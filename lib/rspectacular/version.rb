@@ -1,3 +1,3 @@
-module Rspectacular
-  VERSION = "0.0.3"
+module RSpectacular
+  VERSION = '0.0.4'
 end
