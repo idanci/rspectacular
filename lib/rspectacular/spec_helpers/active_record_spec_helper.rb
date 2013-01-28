@@ -5,8 +5,8 @@ begin
 rescue LoadError
 end
 
-rails_database_yaml_file_path         = File.expand_path('../config/database.yml',       __FILE__)
-rails_engine_database_yaml_file_path  = File.expand_path('../dummy/config/database.yml', __FILE__)
+rails_database_yaml_file_path         = File.expand_path('../../config/database.yml',       __FILE__)
+rails_engine_database_yaml_file_path  = File.expand_path('../../dummy/config/database.yml', __FILE__)
 
 database_yaml_file_path               = if File.exist? rails_engine_database_yaml_file_path
                                           rails_engine_database_yaml_file_path
