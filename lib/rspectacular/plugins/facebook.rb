@@ -1,4 +1,4 @@
-if defined? Capybara
+if defined?(Capybara::Driver::Base)
   RSpec.configure do |config|
     config.after(:each, :facebook => true) do
       visit 'https://www.facebook.com'
