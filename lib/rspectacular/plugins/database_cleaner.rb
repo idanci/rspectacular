@@ -1,4 +1,6 @@
-if defined? DatabaseCleaner
+begin
+  require 'database_cleaner'
+
   RSpec.configure do |config|
     config.before(:suite) do
       DatabaseCleaner.clean_with(:truncation)
@@ -26,7 +28,7 @@ if defined? DatabaseCleaner
       config.use_transactional_fixtures = false
     end
   end
-else
+rescue LoadError
   if defined? RSpec::Rails
     RSpec.configure do |config|
       config.use_transactional_fixtures = true
