@@ -1,3 +1,4 @@
+if defined? ActiveRecord::Base
 begin
   require 'database_cleaner'
 
@@ -34,4 +35,5 @@ rescue LoadError
       config.use_transactional_fixtures = true
     end
   end
+end
 end
