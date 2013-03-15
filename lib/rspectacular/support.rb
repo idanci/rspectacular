@@ -1,3 +1,4 @@
+require 'rspectacular/support/general'
 require 'rspectacular/support/random'
 require 'rspectacular/support/focused'
 require 'rspectacular/support/pending'
