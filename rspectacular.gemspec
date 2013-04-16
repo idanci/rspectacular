@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
 
   gem.authors           = %w{jfelchner}
   gem.email             = 'accounts+git@thekompanee.com'
-  gem.date              = Date.today
+  gem.date              = Time.now
   gem.homepage          = 'https://github.com/jfelchner/rspectacular'
 
   gem.summary           = %q{RSpec Support And Matchers}
