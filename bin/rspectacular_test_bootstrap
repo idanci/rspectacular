@@ -1,15 +1,22 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
 
-trap "rm -f ./tmp/test_fifo; exit;" 2
+fifo_dir  = 'tmp'
+fifo_file = 'test_fifo'
+fifo_path = ['.', fifo_dir, fifo_file].join('/')
 
-if [ ! -d ./tmp ]; then
-  mkdir ./tmp
-fi
+trap 2 do
+  File.delete(fifo_path)
+  exit
+end
 
-if [ ! -p ./tmp/test_fifo ]; then
-  mkfifo ./tmp/test_fifo
-fi
+Dir.mkdir(fifo_dir) unless Dir.exists?(fifo_dir)
 
-while true; do
-  sh -c "$(cat ./tmp/test_fifo)"
-done
+unless File.exists?(fifo_path)
+  %x{mkfifo #{fifo_path}}
+end
+
+input = open(fifo_path, 'r+')
+
+while true do
+  system input.gets
+end
