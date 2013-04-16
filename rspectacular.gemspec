@@ -23,7 +23,7 @@ Gem::Specification.new do |gem|
   gem.rdoc_options      = ['--charset = UTF-8']
   gem.extra_rdoc_files  = %w{README.md}
 
-  gem.executables       = Dir['{bin}/**/*']
+  gem.executables       = Dir['{bin}/**/*'].map {|dir| dir.gsub!(/\Abin\//, '')}
   gem.files             = Dir['{app,config,db,lib}/**/*'] + %w{Rakefile README.md}
   gem.test_files        = Dir['{test,spec,features}/**/*']
   gem.require_paths     = ['lib']
