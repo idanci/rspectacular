@@ -9,14 +9,14 @@ if defined? OmniAuth
   # Except we don't want OmniAuth to fake anything when doing live tests
   #
   RSpec.configure do |config|
-    config.before(:each, :js => true) do
-      @previous_omniauth_test_mode = OmniAuth.config.test_mode
+    config.around(:each, :js => true) do |example|
+      previous_omniauth_test_mode = OmniAuth.config.test_mode
 
       OmniAuth.config.test_mode = false
-    end
 
-    config.after(:each, :js => true) do
-      OmniAuth.config.test_mode = @previous_omniauth_test_mode
+      example.run
+
+      OmniAuth.config.test_mode = previous_omniauth_test_mode
     end
   end
 end
