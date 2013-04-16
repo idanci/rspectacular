@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+trap "rm -f ./tmp/test_fifo; exit;" 2
+
+if [ ! -d ./tmp ]; then
+  mkdir ./tmp
+fi
+
+if [ ! -p ./tmp/test_fifo ]; then
+  mkfifo ./tmp/test_fifo
+fi
+
+while true; do
+  sh -c "$(cat ./tmp/test_fifo)"
+done
