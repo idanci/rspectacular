@@ -8,7 +8,6 @@ end
 if defined? ActionMailer
   RSpec.configure do |config|
     config.after(:each, :email => true) do
-      # Clear all ActionMailer test emails after email specs
       ActionMailer::Base.deliveries.clear
     end
   end
