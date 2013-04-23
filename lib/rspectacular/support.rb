@@ -1,4 +1,5 @@
 require 'rspectacular/support/general'
+require 'rspectacular/support/garbage_collection'
 require 'rspectacular/support/random'
 require 'rspectacular/support/focused'
 require 'rspectacular/support/pending'
