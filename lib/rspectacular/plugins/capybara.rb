@@ -16,4 +16,9 @@ if defined?(Capybara::Driver::Base)
     Capybara.javascript_driver = :webkit
   end
 
+  RSpec.configure do |config|
+    config.before(:each, :js => true) do
+      page.driver.reset!
+    end
+  end
 end
