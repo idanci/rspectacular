@@ -5,6 +5,13 @@
 begin
   require 'database_cleaner'
 
+  begin
+    autodetected = DatabaseCleaner::Base.new.send(:autodetect)
+  rescue DatabaseCleaner::NoORMDetected
+    autodetected = false
+  end
+
+  if autodetected
   RSpec.configure do |config|
     config.before(:suite) do
       DatabaseCleaner.clean_with(:truncation)
@@ -32,7 +39,8 @@ begin
       config.use_transactional_fixtures = false
     end
   end
-rescue LoadError
+  end
+rescue LoadError, DatabaseCleaner::NoORMDetected
   if defined? RSpec::Rails
     RSpec.configure do |config|
       config.use_transactional_fixtures = true
