@@ -1,7 +1,7 @@
-###
-# PayPal requires that you log into the PayPal sandbox before getting access
-# to test users.
-#
+##############################################################################
+#                               PayPal Plugin
+##############################################################################
+
 RSpec.configure do |config|
   config.before(:each, :js => true, :paypal => true) do
     log_in_to_paypal_sandbox

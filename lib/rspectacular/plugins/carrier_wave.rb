@@ -1,7 +1,9 @@
-###
-# Make CarrierWave tests faster and more reliable
-#
-if defined? CarrierWave
+##############################################################################
+#                             CarrierWave Plugin
+##############################################################################
+
+begin
+  require 'carrierwave'
   require 'carrierwave/test/matchers'
 
   CarrierWave.configure do |config|
@@ -22,4 +24,5 @@ if defined? CarrierWave
       subject.class.enable_processing = previous_carrierwave_processing_mode
     end
   end
+rescue LoadError
 end

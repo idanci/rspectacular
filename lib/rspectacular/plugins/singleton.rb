@@ -1,4 +1,6 @@
-require 'singleton'
+##############################################################################
+#                            Singleton Plugin
+##############################################################################
 
 RSpec.configure do |config|
   config.around(:each, :singletons => lambda { |v| !!v }) do |example|

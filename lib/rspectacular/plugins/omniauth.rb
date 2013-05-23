@@ -1,4 +1,10 @@
-if defined? OmniAuth
+##############################################################################
+#                             OmniAuth Plugin
+##############################################################################
+
+begin
+  require 'omniauth'
+
   ###
   # Tell OmniAuth to just return whatever hash we want for each auth type
   #
@@ -11,12 +17,12 @@ if defined? OmniAuth
   RSpec.configure do |config|
     config.around(:each, :js => true) do |example|
       previous_omniauth_test_mode = OmniAuth.config.test_mode
-
-      OmniAuth.config.test_mode = false
+      OmniAuth.config.test_mode   = false
 
       example.run
 
       OmniAuth.config.test_mode = previous_omniauth_test_mode
     end
   end
+rescue LoadError
 end

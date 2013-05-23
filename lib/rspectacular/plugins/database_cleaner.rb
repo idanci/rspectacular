@@ -1,4 +1,7 @@
-if defined? ActiveRecord::Base
+##############################################################################
+#                         Database Cleaner Plugin
+##############################################################################
+
   begin
     require 'database_cleaner'
 
@@ -35,5 +38,4 @@ if defined? ActiveRecord::Base
         config.use_transactional_fixtures = true
       end
     end
-  end
 end
