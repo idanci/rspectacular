@@ -8,7 +8,7 @@ begin
 
   CarrierWave.configure do |config|
     config.storage           = :file
-    config.root              = Rails.root.join('tmp')
+    config.root              = File.expand_path('./tmp')
     config.enable_processing = false
   end
 
