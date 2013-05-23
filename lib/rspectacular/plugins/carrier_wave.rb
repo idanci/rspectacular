@@ -13,12 +13,13 @@ if defined? CarrierWave
   RSpec.configure do |config|
     config.include CarrierWave::Test::Matchers, :carrier_wave => true
 
-    config.before(:each, :carrier_wave => true) do
+    config.around(:each, :file_attachment => true) do |example|
+      previous_carrierwave_processing_mode = subject.class.enable_processing
       subject.class.enable_processing = true
-    end
 
-    config.after(:each, :carrier_wave => true) do
-      subject.class.enable_processing = false
+      example.run
+
+      subject.class.enable_processing = previous_carrierwave_processing_mode
     end
   end
 end
