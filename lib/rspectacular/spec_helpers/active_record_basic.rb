@@ -1,7 +1,7 @@
 require 'active_record'
 
-rails_database_yaml_file_path         = File.expand_path('../../config/database.yml',    __FILE__)
-rails_engine_database_yaml_file_path  = File.expand_path('../dummy/config/database.yml', __FILE__)
+rails_database_yaml_file_path         = File.join(Dir.pwd, 'config', 'database.yml')
+rails_engine_database_yaml_file_path  = File.join(Dir.pwd, 'spec', 'dummy', 'config', 'database.yml')
 
 database_yaml_file_path               = if File.exist? rails_engine_database_yaml_file_path
                                           rails_engine_database_yaml_file_path
@@ -15,8 +15,4 @@ ActiveRecord::Base.establish_connection(connection_info)
 
 require 'rspectacular'
 
-Dir[File.expand_path('../support/**/*.rb',   __FILE__)].each { |f| require f }
-
-RSpec.configure do |config|
-  config.order = 'random'
-end
+Dir[File.join(Dir.pwd, 'spec', 'support', '**', '*.rb')].each { |f| require f }
