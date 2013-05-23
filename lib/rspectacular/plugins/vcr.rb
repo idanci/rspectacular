@@ -13,5 +13,9 @@ begin
     config.configure_rspec_metadata!
   end
 
+  RSpec.configure do |config|
+    config.extend VCR::RSpec::Macros
+  end
+
 rescue LoadError
 end
