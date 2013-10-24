@@ -19,11 +19,7 @@ module Capybara
         alias :xscenario :xit
         alias :given :let
         alias :given! :let!
-
-        if defined?(RSpec::Rails)
-          include RSpec::Rails::RequestExampleGroup
-          include Rack::Test::Methods
-        end
+        alias :feature :describe
       end
     end
   end
