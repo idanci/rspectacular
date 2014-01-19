@@ -18,6 +18,8 @@ if defined?(Capybara::Driver::Base)
 
   if defined?(Capybara::Webkit)
     Capybara.javascript_driver = :webkit
+  else
+    Capybara.javascript_driver = :selenium
   end
 
   RSpec.configure do |config|
