@@ -12,6 +12,10 @@
 # The same goes for capybara-webkit. It must be required before rspectacular.
 #
 if defined?(Capybara::Driver::Base)
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
+
   if defined?(Capybara::Webkit)
     Capybara.javascript_driver = :webkit
   end
