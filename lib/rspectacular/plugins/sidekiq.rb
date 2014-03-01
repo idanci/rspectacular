@@ -2,7 +2,7 @@ begin
   require 'sidekiq/testing'
 
   RSpec.configure do |config|
-    config.before(:each) do
+    config.before(:each) do |example|
       # Clears out the jobs for tests using the fake testing
       Sidekiq::Worker.clear_all
 
