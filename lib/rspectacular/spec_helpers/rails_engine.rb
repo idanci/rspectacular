@@ -4,7 +4,6 @@ require File.expand_path(File.join('..', 'active_record_connection_setup'), __FI
 require File.join(Dir.pwd, 'spec', 'dummy', 'config', 'environment')
 
 require 'rspec/rails'
-require 'rspec/autorun'
 
 require 'rspectacular'
 

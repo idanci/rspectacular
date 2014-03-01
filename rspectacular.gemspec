@@ -28,6 +28,6 @@ Gem::Specification.new do |gem|
   gem.test_files        = Dir['{test,spec,features}/**/*']
   gem.require_paths     = ['lib']
 
-  gem.add_dependency              'rspec',          '~> 2.12'
+  gem.add_dependency              'rspec',          '~> 3.0.beta'
   gem.add_dependency              'fuubar',         '~> 1.0'
 end
