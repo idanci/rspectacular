@@ -29,13 +29,13 @@ module RSpectacular
     ###
     # Forms
     #
-    /the errors for (.*)/                 => -> { "#{sf $1}+div.error" },
+    /the errors for (.*)/                 => lambda { "#{sf $1}+div.error" },
 
     ###
     # Windows
     #
-    /the most recently opened window/     => -> { page.driver.browser.window_handles.last },
-    /the alert dialog/                    => -> { page.driver.browser.switch_to.alert },
+    /the most recently opened window/     => lambda { page.driver.browser.window_handles.last },
+    /the alert dialog/                    => lambda { page.driver.browser.switch_to.alert },
 
     ###
     # Date Picker Buttons
@@ -45,6 +45,6 @@ module RSpectacular
     ###
     # Model Links
     #
-    /the (.*) button for/                 => -> { "##{$1.gsub(/ /, '_')}_#{args[0].class.name.underscore}_#{args[0].id}_link" }
+    /the (.*) button for/                 => lambda { "##{$1.gsub(/ /, '_')}_#{args[0].class.name.underscore}_#{args[0].id}_link" }
   )
 end
