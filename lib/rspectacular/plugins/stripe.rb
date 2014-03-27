@@ -6,7 +6,7 @@ begin
   require 'stripe'
 
   RSpec.configure do |config|
-    config.after(:each, :stripe) do
+    config.after(:suite, :stripe) do
       Stripe::Plan.all(count: 100).each do |plan|
         if plan.id.match(/test/i) || plan.name.match(/test/i)
           plan.delete
