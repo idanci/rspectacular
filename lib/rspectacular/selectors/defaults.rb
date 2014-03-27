@@ -1,5 +1,5 @@
 module RSpectacular
-  Selectors ||= {}
+  Selectors = {}
 
   Selectors.merge!(
     /the Facebook application/ => lambda do
