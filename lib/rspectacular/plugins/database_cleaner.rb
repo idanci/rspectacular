@@ -40,7 +40,7 @@ begin
       end
     end
   end
-rescue LoadError, DatabaseCleaner::NoORMDetected
+rescue LoadError
   if defined? RSpec::Rails
     RSpec.configure do |config|
       config.use_transactional_fixtures = true
