@@ -1,3 +1,5 @@
+require File.expand_path('../selectors/defaults', __FILE__)
+
 def fsf(*args)
   selector        = sf(*args)
   selector_format = selector.starts_with?('.//') ? :xpath : :css
@@ -22,5 +24,3 @@ def sf(*args)
     end
   end
 end
-
-require File.expand_path('../selectors/defaults', __FILE__)
