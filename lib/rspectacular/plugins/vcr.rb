@@ -4,6 +4,7 @@
 
 begin
   require 'vcr'
+  require 'faraday'
 
   VCR.configure do |config|
     config.cassette_library_dir = File.expand_path('./tmp/vcr_cassettes')
