@@ -1,6 +1,8 @@
 begin
-  require 'codeclimate-test-reporter'
+  unless RUBY_VERSION.match /\A1\.8/
+    require 'codeclimate-test-reporter'
 
-  CodeClimate::TestReporter.start
+    CodeClimate::TestReporter.start
+  end
 rescue LoadError
 end
