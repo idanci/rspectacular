@@ -2,10 +2,13 @@
 #                             Shoulda Plugin
 ##############################################################################
 
-if defined? RSpec::Rails
-  begin
-    require 'shoulda-matchers'
+begin
+  require 'shoulda-matchers'
+rescue LoadError
+end
 
+if defined? Shoulda
+  if defined? RSpec::Rails
     module ShouldaRoutingMatchers
       def route(method, path)
         Shoulda::Matchers::ActionController::RouteMatcher.new(method, path, self)
@@ -19,6 +22,5 @@ if defined? RSpec::Rails
         end
       end
     end
-  rescue LoadError
   end
 end
