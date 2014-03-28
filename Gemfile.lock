@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rspectacular (0.22.1)
+    rspectacular (0.22.2)
       fuubar (~> 2.0.beta)
       rspec (~> 3.0.beta)
 
