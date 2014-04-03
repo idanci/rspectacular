@@ -27,4 +27,10 @@ if defined?(Capybara::Driver::Base)
       page.driver.reset!
     end
   end
+
+  if defined?(Chamber)
+    Capybara.default_host = Chamber.env.http.host_with_port
+    Capybara.app_host     = Chamber.env.http.base_url
+    Capybara.server_port  = Chamber.env.http.port
+  end
 end
