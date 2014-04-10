@@ -13,8 +13,8 @@ def idsf(*args)
 end
 
 def sf(*args)
-  string   = args.shift
-  selector = RSpectacular::Selectors.find { |regex, selector| string.match regex }
+  string   = args[0]
+  selector = RSpectacular::Selectors.find { |regex, selector| string.match regex }[1]
 
   if selector.present?
     if selector.respond_to? :call

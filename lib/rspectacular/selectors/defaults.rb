@@ -7,8 +7,9 @@ module RSpectacular
       frame_element[:id]
     end,
 
-    /the flash(.*)/ => lambda do
-      flash_type_class = $1.strip
+    /the flash(.*)/ => lambda do |*args|
+      flash_type       = args[0][/the flash(.*)/, 1]
+      flash_type_class = flash_type.strip
       flash_type_class = flash_type_class.empty? ? '' : ".#{flash_type_class}"
 
       ".flash#{flash_type_class} p"
