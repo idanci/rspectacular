@@ -9,9 +9,9 @@ begin
 
   RSpec.configure do |config|
     config.include Devise::TestHelpers,   :type => :controller
-    config.include Warden::Test::Helpers, :type => :acceptance
+    config.include Warden::Test::Helpers, :type => :feature
 
-    config.before(:suite, :type => :acceptance) do |example|
+    config.before(:suite, :type => :feature) do |example|
       Warden.test_mode!
     end
   end

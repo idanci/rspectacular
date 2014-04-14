@@ -10,7 +10,7 @@ begin
         Sidekiq::Testing.fake!
       elsif example.metadata[:queue] == :immediately_execute
         Sidekiq::Testing.inline!
-      elsif example.metadata[:type] == :acceptance
+      elsif example.metadata[:type] == :feature
         Sidekiq::Testing.inline!
       else
         Sidekiq::Testing.fake!
