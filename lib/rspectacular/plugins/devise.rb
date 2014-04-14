@@ -8,7 +8,12 @@ begin
   Devise.stretches = 1
 
   RSpec.configure do |config|
-    config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::TestHelpers,   :type => :controller
+    config.include Warden::Test::Helpers, :type => :acceptance
+
+    config.before(:suite, :type => :acceptance) do |example|
+      Warden.test_mode!
+    end
   end
 rescue LoadError
 end
