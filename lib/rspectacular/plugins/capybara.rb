@@ -28,6 +28,12 @@ if defined?(Capybara::Driver::Base)
     end
   end
 
+  Capybara.configure do |config|
+    config.match                  = :prefer_exact
+    config.ignore_hidden_elements = true
+    config.visible_text_only      = true
+  end
+
   if defined?(Chamber)
     Capybara.default_host = Chamber.env.http.host_with_port
     Capybara.app_host     = Chamber.env.http.base_url
