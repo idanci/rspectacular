@@ -9,9 +9,11 @@ begin
   ###
   # Tell OmniAuth to just return whatever hash we want for each auth type
   #
-  OmniAuth.config.test_mode            = true
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::Facebook::MockAuthentication.user
-  OmniAuth.config.mock_auth[:twitter]  = OmniAuth::Twitter::MockAuthentication.user
+  OmniAuth.configure do |config|
+    config.test_mode            = true
+    config.mock_auth[:facebook] = OmniAuth::Facebook::MockAuthentication.user
+    config.mock_auth[:twitter]  = OmniAuth::Twitter::MockAuthentication.user
+  end
 
   ###
   # Except we don't want OmniAuth to fake anything when doing live tests
