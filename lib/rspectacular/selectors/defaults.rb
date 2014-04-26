@@ -1,4 +1,8 @@
 module RSpectacular
+  def self.selectors
+    default_selectors
+  end
+
   def self.default_selectors
     {
       /the Facebook application/ => lambda do
