@@ -20,9 +20,9 @@ def sf(*args)
 
   selector             = selector_entry[1]
 
-    if selector.respond_to? :call
-      selector.call(*args)
-    else
-      selector
-    end
+  if selector.respond_to? :call
+    selector.call(*args)
+  else
+    selector
+  end
 end
