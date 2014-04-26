@@ -13,14 +13,16 @@ def idsf(*args)
 end
 
 def sf(*args)
-  string   = args[0]
-  selector = RSpectacular::Selectors.find { |regex, selector| string.match regex }[1]
+  selector_description = args[0]
+  selector_entry       = RSpectacular.selectors.find { |regex, selector| selector_description.match regex }
 
-  if selector.present?
+  fail "Cannot find selector for '#{selector_description}'. Please add it to the list of selectors." if selector_entry.nil?
+
+  selector             = selector_entry[1]
+
     if selector.respond_to? :call
       selector.call(*args)
     else
       selector
     end
-  end
 end
