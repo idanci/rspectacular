@@ -1,7 +1,6 @@
 module RSpectacular
-  Selectors = {}
-
-  Selectors.merge!(
+  def self.default_selectors
+    {
     /the Facebook application/ => lambda do
       frame_element = find 'html#facebook div#pagelet_app_runner iframe'
       frame_element[:id]
@@ -47,5 +46,6 @@ module RSpectacular
     # Model Links
     #
     /the (.*) button for/                 => lambda { "##{$1.gsub(/ /, '_')}_#{args[0].class.name.underscore}_#{args[0].id}_link" }
-  )
+    }
+  end
 end
