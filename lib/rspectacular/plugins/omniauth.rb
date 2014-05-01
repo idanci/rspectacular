@@ -24,9 +24,17 @@ begin
       previous_omniauth_test_mode = OmniAuth.config.test_mode
       OmniAuth.config.test_mode   = false
 
+      example.metadata.fetch(:mock_auth, {}).each do |auth_type, auth_hash|
+        OmniAuth.config.add_mock(auth_type, auth_hash)
+      end
+
       example.run
 
       OmniAuth.config.test_mode = previous_omniauth_test_mode
+    end
+
+    config.before(:each, type: :controller) do |example|
+      request.env['omniauth.auth'] = example.metadata[:mock_auth]
     end
   end
 rescue LoadError
