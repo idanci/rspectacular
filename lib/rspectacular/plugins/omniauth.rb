@@ -33,8 +33,12 @@ begin
       OmniAuth.config.test_mode = previous_omniauth_test_mode
     end
 
-    config.before(:each, type: :controller) do |example|
-      request.env['omniauth.auth'] = example.metadata[:mock_auth]
+    config.before(:each, type: :controller, mock_auth: lambda { |v| !!v }) do |example|
+      if example.metadata[:mock_auth].is_a? Symbol
+        request.env['omniauth.auth'] = OmniAuth.config.mock_auth[example.metadata[:mock_auth]]
+      else
+        request.env['omniauth.auth'] = OmniAuth::AuthHash.new(example.metadata[:mock_auth])
+      end
     end
   end
 rescue LoadError
