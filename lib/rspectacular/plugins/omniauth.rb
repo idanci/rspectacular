@@ -13,6 +13,7 @@ begin
     config.test_mode            = true
     config.mock_auth[:facebook] = OmniAuth::MockAuthentications::Facebook.authentication
     config.mock_auth[:twitter]  = OmniAuth::MockAuthentications::Twitter.authentication
+    config.mock_auth[:ebay]     = OmniAuth::MockAuthentications::Ebay.authentication
   end
 
   ###
