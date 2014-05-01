@@ -1,6 +1,6 @@
 module  OmniAuth
+module  MockAuthentications
 module  Twitter
-module  MockAuthentication
   def self.user
     {
       'provider'    => 'twitter',

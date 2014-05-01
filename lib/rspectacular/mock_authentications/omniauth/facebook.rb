@@ -1,6 +1,6 @@
 module  OmniAuth
+module  MockAuthentications
 module  Facebook
-module  MockAuthentication
   def self.user
     {
       'provider'    => 'facebook',
