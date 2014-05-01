@@ -1,7 +1,7 @@
 module  OmniAuth
 module  MockAuthentications
 module  Twitter
-  def self.user
+  def self.authentication
     {
       'provider'    => 'twitter',
       'uid'         => '100002971692646',

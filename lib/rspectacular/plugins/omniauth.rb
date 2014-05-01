@@ -11,8 +11,8 @@ begin
   #
   OmniAuth.configure do |config|
     config.test_mode            = true
-    config.mock_auth[:facebook] = OmniAuth::MockAuthentications::Facebook.user
-    config.mock_auth[:twitter]  = OmniAuth::MockAuthentications::Twitter.user
+    config.mock_auth[:facebook] = OmniAuth::MockAuthentications::Facebook.authentication
+    config.mock_auth[:twitter]  = OmniAuth::MockAuthentications::Twitter.authentication
   end
 
   ###

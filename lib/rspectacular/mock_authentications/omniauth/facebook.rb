@@ -1,7 +1,7 @@
 module  OmniAuth
 module  MockAuthentications
 module  Facebook
-  def self.user
+  def self.authentication
     {
       'provider'    => 'facebook',
       'uid'         => '100002971692646',
