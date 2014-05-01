@@ -1,18 +1,3 @@
-require 'rspectacular/plugins/capybara.rb'
-require 'rspectacular/plugins/carrier_wave.rb'
-require 'rspectacular/plugins/database_cleaner.rb'
-require 'rspectacular/plugins/devise.rb'
-require 'rspectacular/plugins/email.rb'
-require 'rspectacular/plugins/factory_girl.rb'
-require 'rspectacular/plugins/features.rb'
-require 'rspectacular/plugins/omniauth.rb'
-require 'rspectacular/plugins/paypal.rb'
-require 'rspectacular/plugins/rails/engine.rb'
-require 'rspectacular/plugins/recaptcha.rb'
-require 'rspectacular/plugins/shoulda.rb'
-require 'rspectacular/plugins/sidekiq.rb'
-require 'rspectacular/plugins/singleton.rb'
-require 'rspectacular/plugins/stripe.rb'
-require 'rspectacular/plugins/timecop.rb'
-require 'rspectacular/plugins/vcr.rb'
-require 'rspectacular/plugins/webmock.rb'
+Dir[File.expand_path('../plugins/**/*.rb', __FILE__)].
+  reject { |filename| filename.match /(code_climate|simple_cov)\.rb\z/ }.
+  each   { |filename| require filename }
