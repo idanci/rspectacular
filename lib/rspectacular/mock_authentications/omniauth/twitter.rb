@@ -2,7 +2,7 @@ module  OmniAuth
 module  MockAuthentications
 module  Twitter
   def self.authentication
-    {
+    OmniAuth::AuthHash.new(
       'provider'    => 'twitter',
       'uid'         => '100002971692646',
       'credentials' => {
@@ -36,7 +36,7 @@ module  Twitter
           'updated_time' => '2011-09-11T17:00:51+0000'
         }
       }
-    }
+    )
   end
 end
 end

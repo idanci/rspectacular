@@ -2,7 +2,7 @@ module  OmniAuth
 module  MockAuthentications
 module  Facebook
   def self.authentication
-    {
+    OmniAuth::AuthHash.new(
       'provider'    => 'facebook',
       'uid'         => '100002971692646',
       'credentials' => {
@@ -36,7 +36,7 @@ module  Facebook
           'updated_time' => '2011-09-11T17:00:51+0000'
         }
       }
-    }
+    )
   end
 end
 end
