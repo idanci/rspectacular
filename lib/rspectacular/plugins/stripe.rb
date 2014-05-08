@@ -6,7 +6,7 @@ begin
   require 'stripe'
 
   RSpec.configure do |config|
-    config.after(:suite, :stripe) do
+    config.after(:all, :stripe => true) do
       VCR.turn_off!               if defined?(VCR)
       WebMock.allow_net_connect!  if defined?(WebMock)
 
