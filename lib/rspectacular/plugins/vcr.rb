@@ -4,6 +4,7 @@
 
 begin
   require 'vcr'
+  Dir[File.expand_path('../../vcr_matchers/**/*.rb', __FILE__)].each { |f| require f }
 
   begin
     require 'webmock'
